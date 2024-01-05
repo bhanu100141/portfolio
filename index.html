@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel = "stylesheet" href="index.css"/>
+</head>
+<body>
+
+    <header>
+        <p>Bhanu Prasad Vepakayala</p>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" id="about">
+        <div>
+            <p class="role">MERN Stack Developer</p>
+            <h2>Hello, my name is Bhanu Prasad Vepakayala</h2>
+            <p style="color : grey">Short text with details about you, what you do or your professional career. You can add more information on the about page.</p>
+            <button class="projects-btn" onclick="scrollToProjects()">Projects</button>
+            <button class="linkedIn-btn">LinkedIn</button>
+        </div>
+        <div>
+            <img src="https://res.cloudinary.com/dde4zcc6f/image/upload/v1704390775/images_r62qox.jpg" />
+        </div>
+    </div>
+
+   <div class="form-container" id="addProjectForm">
+        <h1 class="project-add">Add Project</h1>
+        <form onsubmit="addProject(event)">
+            <label>Project Name</label> <br />
+            <input type="text" id="projectName" required> <br />
+            <label>Project Link</label><br />
+            <input type="url" id="projectLink" required> <br />
+            <label>Description</label> <br />
+            <textarea id="projectDescription" rows="5"></textarea> <br />
+            <div style="text-align: right;">
+                <button type="submit" class="add-btn">Add</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="projects-container" id="projects">
+        <div>
+            <h1 style="border-bottom : 3px solid yellow; font-family:'Roboto';">Projects</h1>
+        </div>
+        <div class="card-container">
+            <div class="card-view">
+                <div>
+                    <h3>World Tour</h3>
+                    <p style="color: grey;">I created this personal project in order to show how to create an interface in Figma using a portfolio as an example.</p>
+                    <button class="project-view-btn">View Project</button>
+                </div>
+                <div>
+                    <img src="https://res.cloudinary.com/dgkru5vsg/image/upload/v1691830481/samples/animals/reindeer.jpg" class="card-image" />
+                </div>
+            </div>
+            <div class="card-view">
+                <div>
+                    <h3> Born To Eat</h3>
+                    <p style="color: grey;">I created this personal project in order to show how to create an interface in Figma using a portfolio as an example.</p>
+                    <button class="project-view-btn">View Project</button>
+                </div>
+                <div>
+                    <img src="https://res.cloudinary.com/dgkru5vsg/image/upload/v1691830507/cld-sample-4.jpg" class="card-image" />
+                </div>
+            </div>
+            <div class="card-view">
+                <div>
+                    <h3>Mountains In India</h3>
+                    <p style="color: grey;">I created this personal project in order to show how to create an interface in Figma using a portfolio as an example.</p>
+                    <button class="project-view-btn">View Project</button>
+                </div>
+                <div>
+                    <img src="https://res.cloudinary.com/dgkru5vsg/image/upload/v1691830506/cld-sample-2.jpg" class="card-image" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-container-main">
+        <div>
+            <h1 class="contactUs">Contact Us</h1>
+        </div>
+        <div class="contact-container" id="contact">
+            <i class="icons fab fa-instagram-square"></i>
+            <i class="icons fab fa-linkedin"></i>
+            <i class="icons fas fa-envelope"></i>
+        </div>
+        <div>
+            <p style="text-align: center;">Copyright © 2024. All rights reserved</p>
+        </div>
+    </div>
+    <script>
+        function addProject(event) {
+    event.preventDefault();
+
+    const projectName = document.getElementById("projectName").value;
+    const projectLink = document.getElementById("projectLink").value;
+    const projectDescription = document.getElementById("projectDescription").value;
+
+    if (projectName && projectLink && projectDescription) {
+        const projectsContainer = document.querySelector('.card-container');
+
+        const newCard = document.createElement('div');
+        newCard.classList.add('card-view');
+        newCard.innerHTML = 
+           ` <div>
+                <h3>${projectName}</h3>
+                <p style="color: grey;">${projectDescription}</p>
+                <button class="project-view-btn">View Project</button>
+            </div>
+            <div>
+                <img src="${projectLink}" class="card-image" />
+            </div>`
+        ;
+
+        projectsContainer.appendChild(newCard);
+
+        document.getElementById("projectName").value = '';
+        document.getElementById("projectLink").value = '';
+        document.getElementById("projectDescription").value = '';
+    }
+}
+
+function scrollToProjects() {
+    const projectsSection = document.getElementById("projects");
+
+    if (projectsSection) {
+        projectsSection.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+}
+    </script>
+
+</body>
+
+</html>
+
+ChatGPT
